@@ -15,12 +15,33 @@
     vm.showToastr = showToastr;
 
     activate();
+    activateLealetMap();
 
     function activate() {
       getWebDevTec();
       $timeout(function() {
         vm.classAnimation = 'rubberBand';
       }, 4000);
+    }
+
+    function activateLealetMap(){
+      /*global L*/
+
+        var map = L.map('map', {
+            zoomControl: true,
+            attributionControl: true
+        }).setView([51.5252, -0.0902], 15);
+
+        var tileUrl = 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
+        var ostrLayer = L.tileLayer(tileUrl, {
+                id: 'OSTR',
+                minZoom: 7,
+                maxZoom: 18,
+                detectRetina: 'False'});
+
+        ostrLayer.addTo(map);
+
     }
 
     function showToastr() {
