@@ -6,15 +6,10 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($log) {
-    var vm = this;
+  function MainController() {
+    //var vm = this;
 
-    activate();
     activateLeafletMap();
-
-    function activate() {
-
-    }
 
     function activateLeafletMap(){
       /*global L*/
