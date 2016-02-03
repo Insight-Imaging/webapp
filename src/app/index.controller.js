@@ -6,20 +6,23 @@
     .controller('IndexController', IndexController);
 
   /** @ngInject */
-  function IndexController($firebaseAuth) {
+  function IndexController($route,$window,$log,$location,firebaseService) {
     var vm = this;
-    var ref = new Firebase("https://insight-imaging-dev.firebaseio.com");
-    vm.userAuthenticated = false;
+
+    //vm.userAuthenticated = false;
     vm.authenticate = authenticate;
     vm.register = register;
+    vm.logout = logout;
+
+    $log.debug("IndexController constructor run userAuth="+vm.userAuth);
+    vm.userAuth = firebaseService.auth.$getAuth();
 
     ////////
     function authenticate(){
+  
+      $log.debug("IndexController authenticate() run");
 
-      // Or with an email/password combination
-      var auth = $firebaseAuth(ref);
-
-      auth.$authWithPassword({
+      firebaseService.auth.$authWithPassword({
         email    : vm.email,
         password : vm.password
       })
@@ -27,18 +30,21 @@
       .catch(authErrorHandler)
     }
 
-    function authHandler(/*authData*/){
-        vm.userAuthenticated = true;
+    function authHandler(authData){
+        $log.debug("IndexController authHandler called");
+        vm.userAuth = authData;
     }
 
     function authErrorHandler(/*error*/){
-        vm.userAuthenticated = false;
+        $log.debug("IndexController authErrorHandler called");
+        vm.userAuth = false;
     }
 
     function register(){
-      var ref = new Firebase("https://insight-imaging-dev.firebaseio.com");
+      $log.debug("IndexController register() run");
+      //var ref = new Firebase("https://insight-imaging-dev.firebaseio.com");
 
-      ref.createUser({
+      firebaseService.auth.$createUser({
         email    : vm.email,
         password : vm.password
       })
@@ -52,9 +58,18 @@
     }
 
     function registerErrorHandler(/*error*/){
-        vm.userAuthenticated = false;
+        vm.userAuth = false;
     }
 
+    function logout() {
+      $log.debug("logout called");
+          //vm.email ="";
+          firebaseService.auth.$unauth();
+          vm.userAuth = false;
+          vm.password = "";
+          vm.email = "";
+
+    }
 
   }
 })();

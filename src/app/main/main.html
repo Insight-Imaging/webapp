@@ -1,11 +1,13 @@
-<div layout="vertical" layout-fill layout-align="center center" >
+<div layout="vertical" layout-fill layout-align="center center" ng-controller="IndexController as vmIndex">
 
-  <md-content>
-    <h1>Insight Imaging</h1>
-    <div id="map" style="z-index: 2;  position: fixed; bottom: 0; right: 0; width:100%; height:100%;"> </div>
+  <md-content ng-controller="IndexController as vmIndex">
 
+    <div id="map"  style="z-index: 2;  position: fixed; bottom: 0; left: 0; width:100%; height:90%;"> </div>
+    <div id="toolbar" style="z-index: 2;  position: fixed; top: 0; left: 0; width:100%; height:120;">
+      <h1>Insight Imaging</h1></div>
+      <div  style="z-index: 2;  position: fixed; top: 0; right: 0; width:100; height:120;">
+        <md-button class="md-primary" ng-if="vmIndex.userAuth" ng-click="vmIndex.logout()" >Log out ({{vmIndex.userAuth.password.email}})</md-button></div>
     <header>
-      <acme-navbar creation-date="main.creationDate"></acme-navbar>
     </header>
   </md-content>
 

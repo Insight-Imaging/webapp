@@ -25,11 +25,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <!--<div ng-if="true" ng-view></div>-->
-    <div ng-if="vmIndex.userAuthenticated" ng-view></div>
-    <ng-include ng-if="!vmIndex.userAuthenticated" src="'login.html'"/>
-
+    <div ng-if="vmIndex.userAuth" ng-view></div>
+    <ng-include ng-if="!vmIndex.userAuth" src="'login.html'"/>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
