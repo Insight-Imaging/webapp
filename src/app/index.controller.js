@@ -19,7 +19,7 @@
 
     ////////
     function authenticate(){
-  
+
       $log.debug("IndexController authenticate() run");
 
       firebaseService.auth.$authWithPassword({
@@ -63,11 +63,8 @@
 
     function logout() {
       $log.debug("logout called");
-          //vm.email ="";
           firebaseService.auth.$unauth();
-          vm.userAuth = false;
-          vm.password = "";
-          vm.email = "";
+          $window.location.reload();
 
     }
 
