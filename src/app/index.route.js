@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('test')
+    .module('insight-imaging-webapp')
     .config(routeConfig);
 
   function routeConfig($routeProvider) {

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('test')
+    .module('insight-imaging-webapp')
     .service('firebaseService', firebaseService);
 
   /** @ngInject */
