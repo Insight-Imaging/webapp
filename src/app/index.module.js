@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('test', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'ngMaterial', 'toastr','firebase']);
+    .module('insight-imaging-webapp', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ngRoute', 'ngMaterial', 'toastr','firebase']);
 
 })();

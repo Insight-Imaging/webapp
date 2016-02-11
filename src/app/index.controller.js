@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('test')
+    .module('insight-imaging-webapp')
     .controller('IndexController', IndexController);
 
   /** @ngInject */
-  function IndexController($route,$window,$log,$location,firebaseService) {
+  function IndexController($route,$window,$log,$location,firebaseService,messageService) {
     var vm = this;
 
     //vm.userAuthenticated = false;
@@ -35,8 +35,9 @@
         vm.userAuth = authData;
     }
 
-    function authErrorHandler(/*error*/){
+    function authErrorHandler(error){
         $log.debug("IndexController authErrorHandler called");
+        messageService.error(error.message);
         vm.userAuth = false;
     }
 
@@ -57,8 +58,9 @@
         vm.authenticate();
     }
 
-    function registerErrorHandler(/*error*/){
+    function registerErrorHandler(error){
         vm.userAuth = false;
+        messageService.error(error.message);
     }
 
     function logout() {
