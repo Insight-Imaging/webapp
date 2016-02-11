@@ -6,13 +6,12 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
+  function MainController(L) {
     //var vm = this;
 
     activateLeafletMap();
 
     function activateLeafletMap(){
-      /*global L*/
 
         var map = L.map('map', {
             zoomControl: true,
