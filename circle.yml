@@ -3,5 +3,5 @@ deployment:
   staging:
     branch: master
     commands:
-      - echo $CI_PULL_REQUEST, $FIREBASE_TOKEN, $FIREBASE 
-      - firebase deploy --token $FIREBASE_TOKEN --firebase $FIREBASE
+      - echo $CI_PULL_REQUEST, $FIREBASE_TOKEN, $FIREBASE
+      - gulp && firebase deploy --token $FIREBASE_TOKEN --firebase $FIREBASE
