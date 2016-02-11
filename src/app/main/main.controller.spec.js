@@ -1,10 +1,12 @@
 (function() {
   'use strict';
 
+
   describe('controllers', function(){
     // var vm;
     // var $timeout;
     // var toastr;
+
 
     beforeEach(module('test'));
     beforeEach(inject(function(_$controller_, _$timeout_, _webDevTec_, _toastr_) {
@@ -31,9 +33,11 @@
     //   expect(vm.classAnimation).toEqual('');
     // });
 
+
     // it('should define more than 5 awesome things', function() {
     //   expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
     //   expect(vm.awesomeThings.length === 5).toBeTruthy();
     // });
+
   });
 })();
