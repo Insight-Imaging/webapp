@@ -43,6 +43,14 @@
           attribution: googleAttrib
       });
 
+      var googleUrlTerrain = 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}';
+      var googleTerrain = L.tileLayer(googleUrlTerrain,{
+          id:'GoogleTerrain',
+          maxZoom: 15,
+          subdomains:['mt0','mt1','mt2','mt3'],
+          attribution: googleAttrib
+      });
+
       /*Terrain
 
 
@@ -64,7 +72,8 @@
           //"OS OpenData": osOpenData
           "OpenStreetMap" : osm,
           "Google Maps" : google,
-          "Google Sat" : googleSat
+          "Google Sat" : googleSat,
+          "GoogleTerrain" : googleTerrain
       };
 
       var overlays = {
