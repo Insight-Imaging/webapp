@@ -16,7 +16,7 @@
       var osAttrib = '&copy; <a href="https://www.os.uk/copyright">Ordnance Survey</a>';
       var osKey = 'FBgTnDiN4gVpi2a1tGAnWpvXEXcnHOlN'
       var osUrlRoad = 'https://api2.ordnancesurvey.co.uk/mapping_api/v1/service/zxy/EPSG%3A3857/Road 3857/{z}/{x}/{y}.png?key='+osKey;
-      var osRoad = L.tileLayer(osUrlRoad, {id: 'OS Road', maxZoom: 20, attribution: osAttrib,detectRetina: 'True'});
+      var osRoad = L.tileLayer(osUrlRoad, {id: 'OS Road', maxZoom: 20, attribution: osAttrib});
 
       var osUrlOutdoor = 'https://api2.ordnancesurvey.co.uk/mapping_api/v1/service/zxy/EPSG%3A3857/Outdoor 3857/{z}/{x}/{y}.png?key='+osKey;
       var osOutdoor = L.tileLayer(osUrlOutdoor, {id: 'OS Outdoor', maxZoom: 20, attribution: osAttrib});
@@ -123,7 +123,7 @@
         layers.eachLayer(function(/*layer*/) {
           countOfEditedLayers++;
         });
-        
+
       });
 
     }
