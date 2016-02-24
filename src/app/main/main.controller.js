@@ -107,23 +107,8 @@
       map.addControl(drawControl);
 
       map.on('draw:created', function (e) {
-        var type = e.layerType,
-        layer = e.layer;
-
-        if (type === 'marker') {
-          layer.bindPopup('A popup!');
-        }
-
+        var layer = e.layer;
         drawnItems.addLayer(layer);
-      });
-
-      map.on('draw:edited', function (e) {
-        var layers = e.layers;
-        var countOfEditedLayers = 0;
-        layers.eachLayer(function(/*layer*/) {
-          countOfEditedLayers++;
-        });
-
       });
 
     }
